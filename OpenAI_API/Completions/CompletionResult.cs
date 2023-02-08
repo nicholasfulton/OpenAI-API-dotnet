@@ -58,6 +58,8 @@ namespace OpenAI_API.Completions
 		[JsonProperty("choices")]
 		public List<Choice> Completions { get; set; }
 
+		[JsonProperty("usage")]
+		public CompletionUsage Usage { get; set; }
 
 		/// <summary>
 		/// Gets the text of the first completion, representing the main result
@@ -85,6 +87,18 @@ namespace OpenAI_API.Completions
 
 		[JsonProperty("text_offset")]
 		public List<int> TextOffsets { get; set; }
+	}
+	
+	public class CompletionUsage 
+	{
+		[JsonProperty("prompt_tokens")]
+		public short PromptTokens { get; set; }
+		
+		[JsonProperty("completion_tokens")]
+		public short CompletionTokens { get; set; }
+		
+		[JsonProperty("total_tokens")]
+		public short TotalTokens { get; set; }
 	}
 
 }
